@@ -8,14 +8,12 @@
 
 
 {% block content %}
-<a href="/led/on">LED on</a>
-<a href="/led/off">LED off</a>
+LED :
+<a href="/led/on">ON</a>
+<a href="/led/off">OFF</a>
 <ul>
     <li>
         status: {{ status }}
-    </li>
-    <li>
-        name: {{ name }}
     </li>
 </ul>
 {% endblock content %}

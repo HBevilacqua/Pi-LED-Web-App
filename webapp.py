@@ -8,19 +8,19 @@ def home():
     data = {}
     return render_template('home.html', data=data)
 
-@app.route('/led/<status>') # URL
-def led(status): # function
+@app.route('/led') # URL to chose the mode
+@app.route('/led/<status>') # on/off mode URL
+def led(status = None): #None : optional parameter
     status_bool = False
-    if status == 'on':
+    if status is not None and status == 'on':
         status_bool = True
     data = {
         'status': status,
-        'name': 'Hugo',
     }
     blink_lib.led(status_bool)
     return render_template('led.html', **data)
 
-@app.route('/led_random') # URL
+@app.route('/led_random') # Random mode URL
 def Led_random(): # function
     data = {}
     status = blink_lib.led_random()

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block wraptitle %}
+<div class="text-center">
+  <h1>Webapp LED</h1>
+</div> <!-- text-centered -->
+{% endblock wraptitle %}
+
+
+{% block content %}
+<a href="/led/on">LED on</a>
+<a href="/led/off">LED off</a>
+<div class="text-center">
+  <a href="{{ url_for('home') }}"><i class="fa fa-calendar fa-6"></i></a>
+</div>
+{% endblock content %}

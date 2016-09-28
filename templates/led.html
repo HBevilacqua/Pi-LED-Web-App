@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block wraptitle %}
+<div class="text-center">
+  <h1>LED</h1>
+</div> <!-- text-centered -->
+{% endblock wraptitle %}
+
+
+{% block content %}
+<a href="/led/on">LED on</a>
+<a href="/led/off">LED off</a>
+<ul>
+    <li>
+        status: {{ status }}
+    </li>
+    <li>
+        name: {{ name }}
+    </li>
+</ul>
+{% endblock content %}

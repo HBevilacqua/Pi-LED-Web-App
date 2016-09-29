@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 ### Changed
 - the wep map
+- auto-reloads the flask app when a code change happens (debug option in wepapp.py) 
+  http://stackoverflow.com/a/16344851
 
 ## [initial_release]
 ### Added
@@ -14,3 +16,4 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - the initial flask web application, webapp.py
 - the html code template in template/
 - the pip requirements
+

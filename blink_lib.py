@@ -28,6 +28,8 @@ class Led_thread (Thread):
             status = not status
             print "%s , %s" % ( self.thread_name, status )
             time.sleep(0.5)
+        led(False)
+        print "Stop thread\n"
 """
 try:
     my_thread = Led_thread("blink_thread")

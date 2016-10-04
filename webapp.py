@@ -1,7 +1,9 @@
 from flask import Flask, render_template # web framework
+from threading import Thread
 app = Flask(__name__)
 import blink_lib
 
+thread_blink = None
 
 @app.route('/') # URL
 def home():
@@ -28,6 +30,21 @@ def Led_random(): # function
         'random_status': status
     }
     return render_template('led_random.html', **data)
+
+
+@app.route('/led_blink') # Blink mode URL
+def Led_blink(): # function
+    data = {}
+    global thread_blink
+    # if the thread is not running, starts the thread
+    if (thread_blink is None) or (not thread_blink.isAlive()):
+        thread_blink = blink_lib.Led_thread("thread_blink")
+        thread_blink.start()
+    thread_status = thread_blink.isAlive()
+    # dummy return
+    data = { 'status': thread_status }
+    return render_template('led_blink.html', **data)
+
 
 if __name__ == '__main__':
     # accessible via:
